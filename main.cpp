@@ -126,8 +126,11 @@ bool floyd_warshall_algorithm(std::vector<std::vector<int>> &distances,
             }
         }
 
-        if (distances[u][u] < 0)
-            return false;
+		for (int k = 0; k < dimensions; k++) {
+			if (distances[k][k] < 0) {
+				return false;
+			}
+		}
     }
 
     return true;
